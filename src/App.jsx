@@ -399,7 +399,7 @@ const CountdownSection = () => {
 
         <motion.h2
           variants={itemDown}
-          className="font-script text-[#7b4925] text-[32px] leading-[1.15] mb-2"
+          className="font-script text-[#7b4925] text-[25px] leading-[1.15] mb-2"
         >
           Menuju Hari Bahagia
         </motion.h2>

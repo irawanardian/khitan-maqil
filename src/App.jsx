@@ -168,12 +168,32 @@ const sectionSwitch = {
 // 8. GALERI – MOMEN KHITANAN
 // ------------------------------------------------------------
 const CoralGallery = () => {
-  const galleryImages = [
-    { id: 1, url: "/images/photo-1.jpg", alt: "Galeri 1" },
-    { id: 2, url: "/images/photo-2.jpg", alt: "Galeri 2" },
-    { id: 3, url: "/images/photo-3.jpg", alt: "Galeri 3" },
-    { id: 4, url: "/images/photo-4.jpg", alt: "Galeri 4" },
+  const familyImage = {
+  id: 1,
+  url: "/images/maqil-utama.jpeg",
+  alt: "Foto Keluarga",
+  };
+
+  const childImages = [
+    { id: 2, url: "/images/maqil1.png", alt: "Foto Maqil 1" },
+    { id: 3, url: "/images/maqil2.jpeg", alt: "Foto Maqil 2" },
   ];
+
+  const openImage = (img) => {
+    Swal.fire({
+      imageUrl: img.url,
+      imageAlt: img.alt,
+      showConfirmButton: false,
+      showCloseButton: true,
+      background: "#fff8ef",
+      width: 420,
+      padding: "12px",
+      customClass: {
+        popup: "rounded-[24px]",
+        image: "rounded-[18px]",
+      },
+    });
+  };
 
   return (
     <SectionCanvas>
@@ -202,63 +222,42 @@ const CoralGallery = () => {
           tasyakuran khitanan.
         </motion.p>
 
-        <div className="grid grid-cols-2 gap-2.5 w-full">
-          {galleryImages.map((img) => (
-            <motion.div
-              key={img.id}
-              variants={cardPop}
-              whileTap={{ scale: 0.96 }}
-              className="rounded-[18px] p-2 bg-[#fff4df] shadow-md border border-[#ead2a6]"
-              onClick={() =>
-  Swal.fire({
-    imageUrl: img.url,
-    imageAlt: img.alt,
-    showConfirmButton: false,
-    showCloseButton: true,
-    background: "#fff8ef",
-    width: 420,
-    padding: "12px",
-    customClass: {
-      popup: "rounded-[24px]",
-      image: "rounded-[18px]",
-    },
-  })
-}
-            >
-              <img
-                src={img.url}
-                alt={img.alt}
-                className="w-full h-[82px] object-cover rounded-[14px] border-2 border-white shadow-sm"
-              />
-            </motion.div>
-          ))}
-        </div>
+        <div className="w-full space-y-3">
+  <motion.div
+    variants={cardPop}
+    whileTap={{ scale: 0.97 }}
+    className="rounded-[20px] p-2 bg-[#fff4df] shadow-md border border-[#ead2a6]"
+    onClick={() => openImage(familyImage)}
+  >
+    <img
+  src={familyImage.url}
+  alt={familyImage.alt}
+  className="w-full h-[185px] object-cover object-[center_20%] rounded-[15px] border-2 border-white shadow-sm"
+/>
+  </motion.div>
 
-        {/* VIDEO SUNAT */}
-        <motion.div
-          variants={cardPop}
-          className="mt-4 w-full rounded-[22px] overflow-hidden bg-[#fff4df] border border-[#ead2a6] shadow-xl p-2"
-        >
-          <div className="relative rounded-[16px] overflow-hidden border-2 border-white bg-black shadow-sm">
-            <video
-              src="/videos/video-sunat.mp4"
-              className="w-full h-[125px] object-cover"
-              controls
-              playsInline
-              preload="metadata"
-            />
-
-            <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-md rounded-full px-3 py-1 shadow border border-[#ead2a6] pointer-events-none">
-              <p className="text-[#7b4925] text-[9px] font-bold">
-                Video Momen Khitan
-              </p>
-            </div>
-          </div>
-        </motion.div>
+  <div className="grid grid-cols-2 gap-3 w-full">
+    {childImages.map((img) => (
+      <motion.div
+        key={img.id}
+        variants={cardPop}
+        whileTap={{ scale: 0.96 }}
+        className="rounded-[18px] p-2 bg-[#fff4df] shadow-md border border-[#ead2a6]"
+        onClick={() => openImage(img)}
+      >
+        <img
+          src={img.url}
+          alt={img.alt}
+          className="w-full h-[118px] object-cover rounded-[14px] border-2 border-white shadow-sm"
+        />
+      </motion.div>
+    ))}
+  </div>
+</div>
 
         <motion.p
           variants={itemUp}
-          className="text-[10px] text-[#7b4925] mt-3 bg-[#fffdf7]/85 inline-block px-5 py-2 rounded-full shadow-md border border-[#ead2a6]"
+          className="text-[10px] text-[#7b4925] mt-4 bg-[#fffdf7]/85 inline-block px-5 py-2 rounded-full shadow-md border border-[#ead2a6]"
         >
           Semoga menjadi kenangan indah 🤎
         </motion.p>
@@ -268,7 +267,7 @@ const CoralGallery = () => {
 };
 
 const MapsSection = () => {
-  const mapsUrl = "https://maps.app.goo.gl/gyNDWW4c7nJj5jXZ7";
+  const mapsUrl = "https://maps.app.goo.gl/eQaSJZmDu2puYAMM7";
 
   return (
     <SectionCanvas>
@@ -293,7 +292,7 @@ const MapsSection = () => {
           variants={itemUp}
           className="text-[#6b5545] text-[11px] leading-[1.6] mb-4"
         >
-          Tasyakuran khitanan akan dilaksanakan di Majelis Ta&apos;lim Ar-Rifqi.
+          Tasyakuran khitanan akan dilaksanakan di kediaman kami.
           Klik tombol di bawah untuk membuka lokasi melalui Google Maps.
         </motion.p>
 
@@ -303,8 +302,8 @@ const MapsSection = () => {
         >
           <div className="relative rounded-[18px] overflow-hidden border-2 border-white shadow-sm bg-[#f4e1cd]">
             <iframe
-              title="Peta Lokasi Majelis Ta'lim Ar-Rifqi"
-              src="https://www.google.com/maps?q=Majelis%20Ta%27lim%20Ar-Rifqi%20Jl.%20Swadaya%20II%20Rangkapan%20Jaya%20Pancoran%20Mas%20Depok&output=embed"
+              title="Peta Lokasi"
+              src="https://www.google.com/maps?q=JL.%20Raya%20Muchtar%2C%20Gang%20Poncol%2C%20RT%2002%2F07%2C%20Sawangan%2C%20Kota%20Depok%2C%20Jawa%20Barat%2016511&z=16&output=embed"
               className="w-full h-[220px] border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -313,10 +312,11 @@ const MapsSection = () => {
 
             <div className="absolute bottom-3 left-3 right-3 bg-white/92 backdrop-blur-md rounded-2xl px-3 py-2 shadow-lg border border-[#ead2a6] pointer-events-none">
               <p className="text-[#7b4925] text-[11px] font-bold leading-tight">
-                📍 Majelis Ta&apos;lim Ar-Rifqi
+                📍 Kediaman Kami
               </p>
               <p className="text-[#6b5545] text-[9px] leading-tight mt-1">
-                Jl. Swadaya II, RT 04/19, Rangkapan Jaya, Pancoran Mas, Depok
+                JL. Raya Muchtar, Gang Poncol, RT 02/07, Sawangan - Kec.
+                Sawangan, Kota Depok, Jawa Barat 16511
               </p>
             </div>
           </div>
@@ -790,7 +790,7 @@ const toggleAutoSlide = () => {
             >
               <div className="w-full h-full rounded-full bg-white p-[4px]">
                 <img
-                  src="/images/azkal-cover.jpg"
+                  src="/images/maqil-cover.png"
                   alt="Foto Anak Khitanan"
                   className="w-full h-full object-cover rounded-full"
                 />
@@ -813,8 +813,8 @@ const toggleAutoSlide = () => {
                 Undangan Tasyakuran Khitanan
               </p>
 
-              <h1 className="font-script text-[#6f3f1d] text-[25px] leading-[0.95] mt-3 drop-shadow-sm">
-                Azkal Qolyubi Hasan
+              <h1 className="font-script text-[#6f3f1d] text-[20px] leading-[0.95] mt-3 drop-shadow-sm">
+                Muhammad Maqil Zayanto
               </h1>
             </motion.div>
 
@@ -990,7 +990,7 @@ const toggleAutoSlide = () => {
   <div className="w-[128px] h-[128px] rounded-full bg-gradient-to-br from-[#e8c77d] to-[#9b642d] p-[4px] shadow-xl">
     <div className="w-full h-full rounded-full bg-white p-[4px]">
       <img
-        src="/images/azkal-cover.jpg"
+        src="/images/maqil-cover.png"
         alt="Foto Anak Khitanan"
         className="w-full h-full object-cover rounded-full"
       />
@@ -1010,7 +1010,7 @@ const toggleAutoSlide = () => {
   variants={itemUp}
   className="font-script text-[#6f3f1d] text-[20px] leading-none mb-4"
 >
-  Azkal Qolyubi Hasan
+  Muhammad Maqil Zayanto
 </motion.h2>
 
 <motion.div
@@ -1030,7 +1030,7 @@ const toggleAutoSlide = () => {
   variants={cardPop}
   className="text-[#7b4925] bg-[#fff4df]/80 inline-block px-5 py-2 rounded-full shadow-sm border border-[#ead2a6] text-[14px] font-bold"
 >
-  Ayah Rifqi & Mamah Febi
+  Bapak Maeng & Mamah Mia
 </motion.p>
       </motion.div> 
     </SectionCanvas>
@@ -1080,7 +1080,7 @@ const toggleAutoSlide = () => {
             </p>
 
             <p className="text-[#4d4036] text-[13px]">
-              Sabtu, 20 Juni 2026
+              Minggu, 05 Juli 2026
             </p>
           </motion.div>
 
@@ -1100,13 +1100,12 @@ const toggleAutoSlide = () => {
 
               <p>
                 <span className="font-bold text-[#8b572a]">⏰</span>{" "}
-                13.00 WIB - Selesai
+                12.30 WIB (Ba'da Zuhur) - Selesai
               </p>
 
               <p>
                 <span className="font-bold text-[#8b572a]">📍</span>{" "}
-                Mejelis Ta'lim Ar-Rifqi - Jl. Swadaya II, RT 04/19 Kel. Rangkapan Jaya, Kec. Pancoran
-                Mas, Kota Depok
+                JL. Raya Muchtar, Gang Poncol, RT 02/07, Sawangan - Kec. Sawangan, Kota Depok, Jawa Barat 16511
               </p>
 
               <p className="inline-block bg-[#fff4df]/80 px-3 py-1 rounded-full border border-[#ead2a6] text-[#8b572a] font-semibold">

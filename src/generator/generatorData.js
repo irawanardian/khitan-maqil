@@ -1,4 +1,4 @@
-export const DEFAULT_PUBLIC_LINK = "https://khitan-azkal.vercel.app/";
+export const DEFAULT_PUBLIC_LINK = "https://khitan-maqil.vercel.app/";
 
 export const DEFAULT_DISPLAY_NAME = "Bunda/Ayah/Teman Istimewa";
 
@@ -7,12 +7,12 @@ export const DEFAULT_WHATSAPP_MESSAGE = `Assalamualaikum Warahmatullahi Wabaraka
 Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara:
 
 *Tasyakuran Khitanan*
-*Azkal Qolyubi Hasan*
+*Muhammad Maqil Zayanto*
 
 📅 Minggu, 5 Juli 2026
-⏰ 13.00 WIB - Selesai
-📍 Majelis Ta'lim Ar-Rifqi
-Jl. Swadaya II, RT 04/19, Rangkapan Jaya, Pancoran Mas, Kota Depok
+⏰ 12.30 WIB (Ba'da Zuhur) - Selesai
+📍 Kediaman Kami
+JL. Raya Muchtar, Gang Poncol, RT 02/07, Sawangan - Kec. Sawangan, Kota Depok, Jawa Barat 16511
 
 Berikut link undangan kami:
 {link}
